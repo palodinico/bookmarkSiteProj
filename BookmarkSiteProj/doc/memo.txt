@@ -1,0 +1,5 @@
+コンストラクタが例外をスローする場合には細心の注意を払う
+http://www.jpcert.or.jp/java-rules/obj11-j.html
+
+例外 (Exception) のテスト
+http://www63.tok2.com/home2/jd4/JUnit381toJUnit44Simple.html
