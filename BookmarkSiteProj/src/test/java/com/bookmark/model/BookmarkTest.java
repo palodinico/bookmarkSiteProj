@@ -20,7 +20,7 @@ public class BookmarkTest {
 		bookmrk= new Bookmark("http://www.google.co.jp/", counter.getAndIncrement());
 		assertEquals("http://www.google.co.jp/", bookmrk.getUrl());
 		assertEquals(1, bookmrk.getId());
-		
+		assertEquals("www.google.co.jp", bookmrk.getUrlObj().getHost());
 	}
 	
 	@Test(expected=MalformedURLException.class)
