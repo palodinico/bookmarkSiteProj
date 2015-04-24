@@ -1,1 +1,15 @@
-ほ
+ブックマーク登録サイト
+・ユーザー登録(Signup)
+・ブックマーク登録
+・Log in/out
+
+[***] - page
+<***> - link
+
+1.[top(list of bookmarks] (<login><Signup> unless logined)
+2.[signup]
+3.[add bookmark]
+4.[edit(del) bookmark]
+5.[edit user info]
+
+2~5 has <logout>
