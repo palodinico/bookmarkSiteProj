@@ -1,4 +1,4 @@
-package org.gradle;
+package com.bookmark.model;
 
 public class Person {
     private final String name;

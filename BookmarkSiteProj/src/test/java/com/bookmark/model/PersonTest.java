@@ -1,4 +1,4 @@
-package org.gradle;
+package com.bookmark.model;
 
 import org.junit.Test;
 import static org.junit.Assert.*;
