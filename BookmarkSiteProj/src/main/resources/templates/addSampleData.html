@@ -8,7 +8,8 @@
     <p>Added Sample Data!</p>
     <table>
     <tr th:each="bookmark : ${bookmarks}">
-        <td th:text="${bookmark.getId().toString()} + '-' + ${bookmark.getUrl()}"></td>
+        <td th:text="${bookmark.getId()}"></td>
+        <td th:text="${bookmark.getUrl()}"></td>
     </tr>
     </table>
     
