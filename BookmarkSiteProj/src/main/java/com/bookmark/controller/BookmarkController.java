@@ -34,19 +34,6 @@ public class BookmarkController {
 
 	@RequestMapping("/addSampleData")
 	public String addSampleData(Model model) {
-
-		jdbcTemplate.execute("drop table bookmarks if exists");
-		jdbcTemplate.execute("create table bookmarks ("
-				+ "id serial, url varchar(255))");
-		String[] urls = new String[] { "http://www.w3.org",
-				"http://www.abc.org", "http://www.bbb.org" };
-		int no = 0;
-		for (String url : urls) {
-			jdbcTemplate.update(
-					"INSERT INTO bookmarks(id, url) values (?,?)",
-					no, url);
-			no++;
-		}
 		
 		List<Bookmark> results = jdbcTemplate.query(
 				"SELECT id, url from bookmarks ORDER BY url ASC", 
