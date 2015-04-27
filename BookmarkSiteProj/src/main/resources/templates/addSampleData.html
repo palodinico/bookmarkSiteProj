@@ -1,0 +1,21 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Getting Started: Serving Web Content</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+<body>
+    <p>Added Sample Data!</p>
+    <table>
+    <tr th:each="bookmark : ${bookmarks}">
+        <td th:text="${bookmark.getId().toString()} + '-' + ${bookmark.getUrl()}"></td>
+    </tr>
+    </table>
+    
+    <ol>
+        <li th:each="bookmark : ${bookmarks}"
+            th:text="${bookmark.getId().toString()} + '-' + ${bookmark.getUrl()}" />
+    </ol>
+    
+</body>
+</html>
