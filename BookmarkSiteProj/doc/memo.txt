@@ -3,3 +3,6 @@ http://www.jpcert.or.jp/java-rules/obj11-j.html
 
 例外 (Exception) のテスト
 http://www63.tok2.com/home2/jd4/JUnit381toJUnit44Simple.html
+
+Application.java で JdbcTemplate を使う方法
+http://stackoverflow.com/questions/29584193/null-pointer-exception-for-jdbctemplate-with-springmvc
