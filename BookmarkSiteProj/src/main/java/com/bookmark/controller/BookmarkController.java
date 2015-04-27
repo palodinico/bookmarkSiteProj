@@ -12,6 +12,7 @@ import org.springframework.jdbc.core.simple.ParameterizedRowMapper;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import com.bookmark.model.Bookmark;
 import com.bookmark.paginate.Page;
@@ -36,10 +37,21 @@ public class BookmarkController {
 	}
 
 	@RequestMapping("/addSampleData")
-	public String addSampleData(Model model) {
+	public String addSampleData(
+			@RequestParam(value="pageNumber", required=false, defaultValue="1") int pageNumber,
+			@RequestParam(value="itemsPerPage", required=false, defaultValue="10") int itemsPerPage,
+			Model model) {
 		
-		List<Bookmark> results = getBookmarks(1, 10).getPageItems();
-		model.addAttribute("bookmarks", results);
+		Page<Bookmark> bookmarks = getBookmarks(pageNumber, itemsPerPage);
+		model.addAttribute("bookmarks", bookmarks.getPageItems());
+		model.addAttribute("pageNumber", bookmarks.getPageNumber());
+		model.addAttribute("pageAvailable", bookmarks.getPageAvailable());
+		if (bookmarks.getPageNumber() == 1) {
+			model.addAttribute("isFistPage", true);
+		}
+		if ( bookmarks.getPageAvailable() <= bookmarks.getPageNumber()) {
+			model.addAttribute("isLastPage", true);
+		}
 		
 		return "addSampleData";
 	}

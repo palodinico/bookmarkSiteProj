@@ -5,6 +5,7 @@
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 </head>
 <body>
+    <!--
     <p>Added Sample Data!</p>
     <table>
     <tr th:each="bookmark : ${bookmarks}">
@@ -12,11 +13,18 @@
         <td th:text="${bookmark.getUrl()}"></td>
     </tr>
     </table>
+    -->
     
     <ol>
         <li th:each="bookmark : ${bookmarks}"
             th:text="${bookmark.getId().toString()} + '-' + ${bookmark.getUrl()}" />
     </ol>
+    <p>
+    page: <span th:text="${pageNumber}" /> / <span th:text="${pageAvailable}" />
+    <a th:if="${pageNumber-1}>0" th:href="'?pageNumber=' + ${pageNumber-1}">Prev</a>
+    &nbsp; 
+    <a th:unless="${isLastPage}" th:href="'?pageNumber=' + ${pageNumber+1}">Next</a>
+    </p>
     
 </body>
 </html>
