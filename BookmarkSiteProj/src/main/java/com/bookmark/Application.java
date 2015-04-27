@@ -20,18 +20,11 @@ public class Application {
 		jdbcTemplate.execute("drop table bookmarks if exists");
 		jdbcTemplate.execute("create table bookmarks ("
 				+ "id serial, url varchar(255))");
-		String[] urls = new String[] { 
-				"http://www.w3.org",
-				"http://www.abc.org", 
-				"http://www.bbb.org",
-				"http://www.www.org",
-				"http://www.ok.org"};
-		int no = 0;
-		for (String url : urls) {
+		int noMax = 1000;
+		for (int no = 0; no < noMax; no++) {
 			jdbcTemplate.update(
 					"INSERT INTO bookmarks(id, url) values (?,?)",
-					no, url);
-			no++;
+					no, "http://www.w" + no + ".com");
 		}
 	}
 	

@@ -36,7 +36,7 @@ public class BookmarkController {
 	public String addSampleData(Model model) {
 		
 		List<Bookmark> results = jdbcTemplate.query(
-				"SELECT id, url from bookmarks ORDER BY url ASC", 
+				"SELECT id, url from bookmarks", 
 				new RowMapper<Bookmark>() {
 					@Override
 					public Bookmark mapRow(ResultSet rs, int rowNum)
