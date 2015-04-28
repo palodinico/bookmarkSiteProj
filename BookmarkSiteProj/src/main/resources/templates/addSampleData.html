@@ -1,24 +1,29 @@
 <!DOCTYPE HTML>
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
-    <title>Getting Started: Serving Web Content</title>
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>Getting Started: Serving Web Content</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 </head>
 <body>
-    
-    <ol>
-        <li th:each="bookmark : ${bookmarks}"
-            th:text="${bookmark.getId().toString()} + '-' + ${bookmark.getUrl()}" />
-    </ol>
-    <p>
-    page: <span th:text="${pageNumber}" /> / <span th:text="${pageAvailable}" />
-    </p>
-    <p>
-    <a th:if="${pageNumber} > 1" th:href="@{/addSampleData(pageNumber=1, itemsPerPage=${itemsPerPage})}">|&lt;&lt;</a>&nbsp;
-    <a th:if="${pageNumber} > 1" th:href="@{/addSampleData(pageNumber=${pageNumber-1}, itemsPerPage=${itemsPerPage})}">&lt;</a>&nbsp; 
-    <a th:unless="${isLastPage}" th:href="@{/addSampleData(pageNumber=${pageNumber+1}, itemsPerPage=${itemsPerPage})}">&gt;</a>&nbsp;
-    <a th:unless="${isLastPage}" th:href="@{/addSampleData(pageNumber=${pageAvailable}, itemsPerPage=${itemsPerPage})}">&gt;&gt;|</a>
-    </p>
-    
+
+	<ol>
+		<li th:each="bookmark : ${bookmarks}"
+			th:text="${bookmark.getId().toString()} + '-' + ${bookmark.getUrl()}" />
+	</ol>
+	<p>
+		page: <span th:text="${pageNumber}" /> / <span
+			th:text="${pageAvailable}" />
+	</p>
+	<p>
+		<a th:if="${pageNumber} > 1"
+			th:href="@{/addSampleData(pageNumber=1, itemsPerPage=${itemsPerPage})}">|&lt;&lt;</a>&nbsp;
+		<a th:if="${pageNumber} > 1"
+			th:href="@{/addSampleData(pageNumber=${pageNumber-1}, itemsPerPage=${itemsPerPage})}">&lt;</a>&nbsp;
+		<a th:unless="${isLastPage}"
+			th:href="@{/addSampleData(pageNumber=${pageNumber+1}, itemsPerPage=${itemsPerPage})}">&gt;</a>&nbsp;
+		<a th:unless="${isLastPage}"
+			th:href="@{/addSampleData(pageNumber=${pageAvailable}, itemsPerPage=${itemsPerPage})}">&gt;&gt;|</a>
+	</p>
+
 </body>
 </html>
