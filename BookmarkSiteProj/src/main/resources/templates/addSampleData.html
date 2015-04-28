@@ -14,9 +14,10 @@
     page: <span th:text="${pageNumber}" /> / <span th:text="${pageAvailable}" />
     </p>
     <p>
-    <a th:if="${pageNumber-1}>0" th:href="@{/addSampleData(pageNumber=${pageNumber-1}, itemsPerPage=${itemsPerPage})}">Prev</a>
-    &nbsp; 
-    <a th:unless="${isLastPage}" th:href="@{/addSampleData(pageNumber=${pageNumber+1}, itemsPerPage=${itemsPerPage})}">Next</a>
+    <a th:if="${pageNumber} > 1" th:href="@{/addSampleData(pageNumber=1, itemsPerPage=${itemsPerPage})}">|&lt;&lt;</a>&nbsp;
+    <a th:if="${pageNumber} > 1" th:href="@{/addSampleData(pageNumber=${pageNumber-1}, itemsPerPage=${itemsPerPage})}">&lt;</a>&nbsp; 
+    <a th:unless="${isLastPage}" th:href="@{/addSampleData(pageNumber=${pageNumber+1}, itemsPerPage=${itemsPerPage})}">&gt;</a>&nbsp;
+    <a th:unless="${isLastPage}" th:href="@{/addSampleData(pageNumber=${pageAvailable}, itemsPerPage=${itemsPerPage})}">&gt;&gt;|</a>
     </p>
     
 </body>
