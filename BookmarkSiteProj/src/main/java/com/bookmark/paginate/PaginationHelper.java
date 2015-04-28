@@ -30,6 +30,7 @@ public class PaginationHelper<E> {
 		final Page<E> page = new Page<E>();
 		page.setPageNumber(pageNo);
 		page.setPageAvaliable(pageCount);
+		page.setPageSize(pageSize);
 		
 		final int startRow = (pageNo - 1) * pageSize;
 		jt.query(

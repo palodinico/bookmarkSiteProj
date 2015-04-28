@@ -8,6 +8,7 @@ public class Page<E> {
 	private int pageNumber;
 	private int pageAvailable;
 	private List<E> pageItems = new ArrayList<E>();
+	private int pageSize;
 	
 	public void setPageNumber(int pageNumber) {
 		this.pageNumber = pageNumber;
@@ -31,5 +32,13 @@ public class Page<E> {
 	
 	public List<E> getPageItems() {
 		return pageItems;
+	}
+
+	public void setPageSize(int pageSize) {
+		this.pageSize = pageSize;
+	}
+	
+	public int getPageSize() {
+		return pageSize;
 	}
 }

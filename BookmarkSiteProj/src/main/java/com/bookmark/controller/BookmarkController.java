@@ -23,7 +23,7 @@ public class BookmarkController {
 
 	@Autowired
 	JdbcTemplate jdbcTemplate;
-
+	
 	@RequestMapping("/bookmarks")
 	public String bookmarks(Model model) {
 		model.addAttribute("title", "All bookarks");
@@ -43,9 +43,11 @@ public class BookmarkController {
 			Model model) {
 		
 		Page<Bookmark> bookmarks = getBookmarks(pageNumber, itemsPerPage);
+		
 		model.addAttribute("bookmarks", bookmarks.getPageItems());
 		model.addAttribute("pageNumber", bookmarks.getPageNumber());
 		model.addAttribute("pageAvailable", bookmarks.getPageAvailable());
+		model.addAttribute("itemsPerPage", bookmarks.getPageSize());
 		if (bookmarks.getPageNumber() == 1) {
 			model.addAttribute("isFistPage", true);
 		}
