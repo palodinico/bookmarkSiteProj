@@ -11,16 +11,36 @@ import org.springframework.jdbc.core.simple.ParameterizedRowMapper;
 
 public class PaginationHelper<E> {
 	
+	private final int defaultPageSize = 10;
+	
 	public Page<E> fetchPage (
 			final JdbcTemplate jt,
 			final String sqlCountRows,
 			final String sqlFetchRows,
 			final Object args[],
-			final int pageNo,
-			final int pageSize,
+			final int targetPageNo,
+			final int targetPageSize,
 			final ParameterizedRowMapper<E> rowMapper) {
 		
 		final int rowCount = jt.queryForInt(sqlCountRows, args);
+		
+		final int pageSize;
+		final int pageNo;
+		if (rowCount < targetPageSize) {
+			pageSize = rowCount;
+			pageNo = 1;
+		} else {
+			if (targetPageSize < 1) {
+				pageSize = defaultPageSize;
+			} else {
+				pageSize = targetPageSize;
+			}
+			if (targetPageNo < 1) {
+				pageNo = 1;
+			} else {
+				pageNo = targetPageNo;
+			}
+		}
 		
 		int pageCount = rowCount / pageSize;
 		if (rowCount > pageSize * pageCount) {
