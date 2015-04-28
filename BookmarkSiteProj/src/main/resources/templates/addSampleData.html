@@ -19,6 +19,9 @@
 			th:href="@{/addSampleData(pageNumber=1, itemsPerPage=${itemsPerPage})}">|&lt;&lt;</a>&nbsp;
 		<a th:if="${pageNumber} > 1"
 			th:href="@{/addSampleData(pageNumber=${pageNumber-1}, itemsPerPage=${itemsPerPage})}">&lt;</a>&nbsp;
+		
+		<a th:each="i : ${pageNumbers}" th:utext="${i} == ${pageNumber} ? ('&lt;b&gt;' + ${i} + '&lt;/b&gt;') : ${i}">1</a>
+		
 		<a th:unless="${isLastPage}"
 			th:href="@{/addSampleData(pageNumber=${pageNumber+1}, itemsPerPage=${itemsPerPage})}">&gt;</a>&nbsp;
 		<a th:unless="${isLastPage}"
